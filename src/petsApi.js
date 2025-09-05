@@ -13,6 +13,7 @@ export async function addPet(pet) {
     await ddb.send(new PutCommand({ TableName, Item: pet }));
 }
 
+// Mark a pet as adopted TASK 2
 export async function markAdopted(id) {
     await ddb.send(new UpdateCommand({
             TableName,
@@ -23,4 +24,21 @@ export async function markAdopted(id) {
         })
     );
 }
+
+export async function deletePet(id) {
+    await ddb.send(new DeleteCommand({ TableName, Key: { id } }));
+}
+
+// New pet name - rename a pet
+export async function renamePet(id, name) {
+    await ddb.send(new UpdateCommand({
+            TableName,
+            Key: { id },
+            UpdateExpression: "set #n = :name",
+            ExpressionAttributeNames: { "#n": "name" },
+            ExpressionAttributeValues: { ":name": name }
+        })
+    );
+}
+
         
