@@ -1,0 +1,6 @@
+/* src/styles/main.scss */
+$brand: #7c3aed;
+
+:root { --brand: #{$brand}; }
+
+.header-logo { letter-spacing: .5px; }

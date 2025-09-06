@@ -34,10 +34,14 @@ VITE_AWS_ACCESS_KEY_ID=YOUR_KEY_ID
 VITE_AWS_SECRET_ACCESS_KEY=YOUR_SECRET
 VITE_DDB_TABLE=Pet
 ```
-**Important** Vite only exposes env vars that start w/ VITE_.
-Safe Template .env.example included with no secrets:
-
-## Git ignore safety includes:
+Vite only exposes env vars that start w/ VITE_.
+Safe Template .env.example included with no secrets
+## DynamoDB Setup
+Create a Pet table in the same region as VITE_AWS_REGION (us-east-2):
+- Table name: Pet
+- Partition key: id (String)
+- Billing mode: On-demand (default is fine)
+## Git ignore safety
 ```
 Env Files:
 .env
@@ -46,12 +50,12 @@ Env Files:
 .env.*
 !.env.example
 ```
-## DynamoDB Setup
-Ceate a **pet** table in same Region as `VITE_AWS_REGION`.
-**Console path:** AWS Console → Tables → Create table
-- **Table name:** `Pet`
-- **Partition key: `id` (String)
-- Billing: (default)
+## Scripts
+- `npm run dev` - start the dev server
+- `npm run build` - build for production
+- `npm run preview` - preview a production build locally
+- `npm run lint` - run ESLint 
+
 ## Project Structure
 ```
 tulas-pet-adoption/
@@ -69,12 +73,7 @@ tulas-pet-adoption/
 ├─ vite.config.js
 └─ README.md
 ```
-**(just figured out that ``` would make my structure saty in a tree)**
-## NPM Scripts
-- `npm run dev` - start the dev server
-- `npm run build` - build for production
-- `npm run preview` - preview a production build locally
-- `npm run lint` - run ESLint 
+**(just figured out that ``` would make my structure stay in a tree)**
 
 ## links to follow
 ## screen shots to follow
