@@ -1,15 +1,20 @@
 # Tula's Pet Adoption
-A light weight React + Vite app with AWS DynamoDB backend
+A light weight React + Vite app with AWS DynamoDB backend, styled with **Material UI (MUI)** and a small **Sass** file.
+## Screen Shot
+![Table + App](src/assets/images/tableAndApp.png)
 ## Overview
 This project is a simple pet adoption app building in small bit size steps.
 - Planning
 - Creating a React app with Vite
-- Preparing AWS files, env and clients stubs
+- Preparing AWS files, env and clients stub
 - Creating the DynamoDB Pet Table
-- First commit and push
+- Implement CRUD (list/add/adopt/rename/delete)
+- Split UI into components + add a sticky footer
 ## Tech Stack
 - React (Vite)
 - AWS DynamoDB
+- Material UI
+- Sass (SCSS)
 - JavaScript
 ## Requirements
 - Node.js 18+
@@ -61,17 +66,26 @@ Env Files:
 tulas-pet-adoption/
 ├─ public/
 ├─ src/
-│ ├─ App.jsx
-│ ├─ main.jsx
-│ ├─ aws.js # DynamoDB client (DocumentClient)
-│ ├─ petsApi.js # API functions (list/add/markAdopted)
-│ └─ assets/ # images/icons (optional)
-├─ .env.local # local only (ignored)
-├─ .env.example # safe template (committed)
-├─ index.html # set <title>Tula’s Pet Adoption</title>
+│  ├─ components/
+│  │  ├─ Header.jsx
+│  │  ├─ Footer.jsx
+│  │  ├─ ErrorAlert.jsx
+│  │  ├─ AddPetForm.jsx
+│  │  └─ PetItem.jsx
+│  ├─ styles/
+│  │  └─ main.scss          
+│  ├─ App.jsx
+│  ├─ main.jsx
+│  ├─ theme.js              
+│  ├─ aws.js                
+│  └─ petsApi.js            
+├─ .env.local               
+├─ .env.example             
+├─ index.html               
 ├─ package.json
 ├─ vite.config.js
 └─ README.md
+
 ```
 **(just figured out that ``` would make my structure stay in a tree)**
 

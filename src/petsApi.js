@@ -1,3 +1,5 @@
+// src/petsApi.js
+
 import { ddb } from "./aws";
 import { ScanCommand, PutCommand, UpdateCommand, DeleteCommand } from "@aws-sdk/lib-dynamodb";
 
@@ -9,11 +11,11 @@ export async function listPets() {
 } 
 
 export async function addPet(pet) {
-    // pet: { id, name, age, species, status, createdAt }
+    
     await ddb.send(new PutCommand({ TableName, Item: pet }));
 }
 
-// Mark a pet as adopted TASK 2
+
 export async function markAdopted(id) {
     await ddb.send(new UpdateCommand({
             TableName,
@@ -29,7 +31,7 @@ export async function deletePet(id) {
     await ddb.send(new DeleteCommand({ TableName, Key: { id } }));
 }
 
-// New pet name - rename a pet
+
 export async function renamePet(id, name) {
     await ddb.send(new UpdateCommand({
             TableName,

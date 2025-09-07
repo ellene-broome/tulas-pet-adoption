@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { listPets, addPet, markAdopted, deletePet, renamePet } from "./petsApi";
 
-import { Container } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import ErrorAlert from "./components/ErrorAlert";
 import AddPetForm from "./components/AddPetForm";
 import PetList from "./components/PetList";
@@ -13,7 +14,7 @@ import PetList from "./components/PetList";
 export default function App() {
   const [pets, setPets] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [saving, setSaving] = useState(false); // for the add form
+  const [saving, setSaving] = useState(false); 
   const [error, setError] = useState("");
 
   useEffect(() => { refresh(); }, []);
@@ -69,17 +70,26 @@ export default function App() {
   }
 
   return (
-    <Container maxWidth="md" sx={{ py: 4 }}>
-      <Header />
-      <ErrorAlert message={error} />
-      <AddPetForm onAdd={handleAddPet} saving={saving} />
-      <PetList
-        pets={pets}
-        loading={loading}
-        onAdopt={handleAdopt}
-        onDelete={handleDelete}
-        onRename={handleRename}
-      />
+    <Box sx={{ 
+      minHeight: "100vh", 
+      display: "flex", 
+      flexDirection: "column", 
+      bgcolor: "background.default" 
+      }}
+      >
+      <Container maxWidth="md" sx={{ py: 4, flexGrow: 1 }}>
+         <Header />
+         <ErrorAlert message={error} />
+         <AddPetForm onAdd={handleAddPet} saving={saving} />
+         <PetList
+           pets={pets}
+           loading={loading}
+           onAdopt={handleAdopt}
+           onDelete={handleDelete}
+           onRename={handleRename}
+         />
     </Container>
+      <Footer />
+    </Box>
   );
 }

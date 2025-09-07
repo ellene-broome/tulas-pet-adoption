@@ -1,6 +1,29 @@
 /* src/styles/main.scss */
-$brand: #7c3aed;
 
-:root { --brand: #{$brand}; }
+@use "./palette";
+@use "./mixins";
 
+:root {
+  --radius: 12px;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* simple utilities you can slap on anything */
+.brand-text  { color: var(--brand); }
+.brand-muted { color: var(--muted); }
+.brand-border { border: 1px solid color-mix(in srgb, var(--brand), #000 85%); border-radius: var(--radius); }
+
+/* example custom buttons (for non-MUI elements) */
+.btn-brand    { @include mixins.button-like(var(--brand)); }
+.btn-accent   { @include mixins.button-like(var(--accent)); }
+.btn-danger   { @include mixins.button-like(var(--danger)); }
+
+/* tiny tweaks */
 .header-logo { letter-spacing: .5px; }
+.header-logo:hover { filter: brightness(0.9); }
+.footer-gradient {
+    background: linear-gradient(90deg, var(--brand), var(--accent));
+}

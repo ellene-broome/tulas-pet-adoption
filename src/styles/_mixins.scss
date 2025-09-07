@@ -1,0 +1,13 @@
+@mixin button-like($bg, $fg: #fff) {
+  background: $bg;
+  color: $fg;
+  border: none;
+  border-radius: .5rem;
+  padding: .5rem .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter .15s ease-in-out;
+
+  &:hover { filter: brightness(0.95); }
+  &:disabled { opacity: .6; cursor: not-allowed; }
+}
