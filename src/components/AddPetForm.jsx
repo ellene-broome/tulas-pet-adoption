@@ -38,13 +38,13 @@ export default function AddPetForm({ onAdd, saving }) {
             required
           />
 
-          <TextField
-            label="Age"
-            type="number"
-            value={age}
-            onChange={(e)=>setAge(e.target.value)}
-            inputProps={{ min: 0 }}  // 👈 simple & works
-          />
+         <TextField
+  label="Age"
+  type="number"
+  value={age}
+  onChange={(e) => setAge(e.target.value)}
+  slotProps={{ input: { inputProps: { min: 0 } } }}  
+/>
 
           {/* Keep BOTH columns inside the SAME container */}
           

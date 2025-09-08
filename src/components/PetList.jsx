@@ -1,6 +1,6 @@
 // src/components/PetList.jsx
 
-import { Stack, Card, CardContent, Typography } from "@mui/material";
+import { Stack, Card, CardContent, Typography, Grow, Box } from "@mui/material";
 import PetItem from "./PetItem";
 
 export default function PetList({ pets, loading, onAdopt, onDelete, onRename }) {
@@ -18,15 +18,13 @@ export default function PetList({ pets, loading, onAdopt, onDelete, onRename }) 
   }
   return (
     <Stack spacing={2}>
-      {pets.map((p) => (
-        <PetItem
-          key={p.id}
-          pet={p}
-          onAdopt={onAdopt}
-          onDelete={onDelete}
-          onRename={onRename}
-        />
-      ))}
+      {pets.map((p, idx) => (
+        <Grow in key={p.id} timeout={250 + idx * 40}>
+        <Box>
+          <PetItem pet={p} onAdopt={onAdopt} onDelete={onDelete} onRename={onRename} />
+        </Box>
+        </Grow>
+       ))} 
     </Stack>
   );
 }

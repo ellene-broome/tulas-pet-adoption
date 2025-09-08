@@ -1,5 +1,8 @@
 # Tula's Pet Adoption
-A light weight React + Vite app with AWS DynamoDB backend, styled with **Material UI (MUI)** and a small **Sass** file.
+A light weight React + Vite app with AWS DynamoDB backend, styled with **Material UI (MUI)** and a small **Sass** with a bit of **animation**
+
+https://github.com/ellene-broome/tulas-pet-adoption
+
 ## Screen Shot
 ![Table + App](src/assets/images/tableAndApp.png)
 ## Overview
@@ -9,13 +12,19 @@ This project is a simple pet adoption app building in small bit size steps.
 - Preparing AWS files, env and clients stub
 - Creating the DynamoDB Pet Table
 - Implement CRUD (list/add/adopt/rename/delete)
+- Styling with MUI and Sass pallette
+- basic simple animation with `<fade>`&`<grow>`
 - Split UI into components + add a sticky footer
+- Jest + React Testing Library unit tests.
 ## Tech Stack
 - React (Vite)
 - AWS DynamoDB
 - Material UI
 - Sass (SCSS)
 - JavaScript
+- Jest and react library unit tests
+  **Tests SS**
+  ![Passing](src/assets/images/jest%20-unit-test.png)
 ## Requirements
 - Node.js 18+
 - AWS account with an IAM user that has DynamoDB permissions
@@ -56,38 +65,51 @@ Env Files:
 !.env.example
 ```
 ## Scripts
-- `npm run dev` - start the dev server
-- `npm run build` - build for production
-- `npm run preview` - preview a production build locally
-- `npm run lint` - run ESLint 
-
+```
+"scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "preview": "vite preview",
+  "lint": "eslint .",
+  "test": "jest",
+  "test:watch": "jest --watch"
+}
+```
 ## Project Structure
 ```
 tulas-pet-adoption/
 ├─ public/
 ├─ src/
+│  ├─ assets/
+│  │  └─ images/
+│  │     └─ tableAndApp.png          
 │  ├─ components/
-│  │  ├─ Header.jsx
-│  │  ├─ Footer.jsx
-│  │  ├─ ErrorAlert.jsx
 │  │  ├─ AddPetForm.jsx
-│  │  └─ PetItem.jsx
+│  │  ├─ ErrorAlert.jsx
+│  │  ├─ Footer.jsx
+│  │  ├─ Header.jsx
+│  │  ├─ PetItem.jsx
+│  │  └─ PetList.jsx
 │  ├─ styles/
-│  │  └─ main.scss          
+│  │  ├─ _mixins.scss
+│  │  ├─ _palette.scss
+│  │  └─ main.scss
+│  ├─ _tests_/
+│  │  └─ AddPetForm.test.jsx        
 │  ├─ App.jsx
+│  ├─ aws.js                         
+│  ├─ petsApi.js                     
+│  ├─ theme.js                       
 │  ├─ main.jsx
-│  ├─ theme.js              
-│  ├─ aws.js                
-│  └─ petsApi.js            
-├─ .env.local               
-├─ .env.example             
-├─ index.html               
-├─ package.json
+│  └─ setupTests.js                  
+├─ .env.example
+├─ index.html
+├─ jest.config.cjs
+├─ babel.config.cjs
 ├─ vite.config.js
 └─ README.md
 
-```
-**(just figured out that ``` would make my structure stay in a tree)**
 
-## links to follow
-## screen shots to follow
+```
+**(I just figured out that ``` would make my structure stay in a tree)**
+
